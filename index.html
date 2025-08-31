@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Countdown Timer</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⏰ Countdown Timer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>⏰ Countdown Timer</h1>
-    <div class="timer-section">
-      <input type="date" id="countdownDate" class="timer-input">
-      <input type="time" id="countdownInput" class="timer-input">
-      <button onclick="startCountdown()">Start</button>
-      <div id="timer1" class="timer-display">00:00:00</div>
+    <div class="container">
+        <h1>Countdown Timer</h1>
+        <div class="progress-ring">
+            <svg class="progress-circle" width="200" height="200">
+                <circle class="progress-circle-bg" cx="100" cy="100" r="95"></circle>
+                <circle class="progress-circle-fg" cx="100" cy="100" r="95"></circle>
+            </svg>
+            <div class="timer-display" id="timer1">00:00:00</div>
+        </div>
+        <div class="timer-section">
+            <div class="input-group">
+                <label for="countdownDate">Date</label>
+                <input type="date" id="countdownDate" class="timer-input" onchange="updateMinTime()">
+            </div>
+            <div class="input-group">
+                <label for="countdownInput">Time</label>
+                <input type="time" id="countdownInput" class="timer-input" onchange="updateMinTime()">
+            </div>
+        </div>
+        <div class="button-group">
+            <button onclick="startCountdown()">Start</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+        <audio id="alarmSound" loop>
+            <source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg">
+        </audio>
     </div>
-    <button onclick="resetTimer()">Reset</button>
-  </div>
-
-  <!-- Alarm sound -->
-  <audio id="alarmSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto" loop></audio>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
